@@ -1,0 +1,159 @@
+\hypertarget{_problem___statement__3_8c}{}\section{F\+:/\+S\+I\+D\+D\+H\+A\+R\+T\+H/\+F\+I\+L\+E\+S/\+S\+T\+U\+D\+Y/\+S\+EM 5/\+C\+S\+N-\/361 C\+O\+M\+P\+U\+T\+ER N\+E\+T\+W\+O\+R\+KS L\+A\+B\+O\+R\+A\+T\+O\+R\+Y/\+A\+S\+S\+I\+G\+N\+M\+E\+N\+T\+S/\+A\+S\+S\+I\+G\+N\+M\+E\+NT 1/17114033\+\_\+\+G\+H\+E\+T\+I\+A\+\_\+\+S\+I\+D\+D\+H\+A\+R\+T\+H/\+C\+O\+D\+E\+S/\+Problem\+\_\+\+Statement\+\_\+3.c File Reference}
+\label{_problem___statement__3_8c}\index{F:/SIDDHARTH/FILES/STUDY/SEM 5/CSN-\/361 COMPUTER NETWORKS LABORATORY/ASSIGNMENTS/ASSIGNMENT 1/17114033\_GHETIA\_SIDDHARTH/CODES/Problem\_Statement\_3.c@{F:/SIDDHARTH/FILES/STUDY/SEM 5/CSN-\/361 COMPUTER NETWORKS LABORATORY/ASSIGNMENTS/ASSIGNMENT 1/17114033\_GHETIA\_SIDDHARTH/CODES/Problem\_Statement\_3.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/ip\+\_\+icmp.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdata__packet}{data\+\_\+packet}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_problem___statement__3_8c_a70ed59adcb4159ac551058053e649640}{S\+I\+ZE}}~64
+\item 
+\#define \mbox{\hyperlink{_problem___statement__3_8c_a614217d263be1fb1a5f76e2ff7be19a2}{P\+O\+RT}}~0
+\item 
+\#define \mbox{\hyperlink{_problem___statement__3_8c_a165c57b6838f173dac2bb6a0047a5691}{T\+I\+M\+E\+L\+I\+M\+IT}}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_problem___statement__3_8c_a3b325b7ae73b911d9884c0dcbb0b514e}{interrupt\+\_\+func}} (int n)
+\item 
+unsigned short \mbox{\hyperlink{_problem___statement__3_8c_a7e4191dbf10b7011b66f11f72799cc1a}{checksum}} (void $\ast$data, int len)
+\item 
+char $\ast$ \mbox{\hyperlink{_problem___statement__3_8c_ad11ca03db7eaa531250ec8cf2ba29010}{reverse\+\_\+\+D\+N\+S\+\_\+lookup}} (char $\ast$ip)
+\item 
+char $\ast$ \mbox{\hyperlink{_problem___statement__3_8c_acbb1b4caa5a7a611cbbf0e997f59e2cc}{D\+N\+S\+\_\+lookup}} (char $\ast$addr\+\_\+host, struct sockaddr\+\_\+in $\ast$addr\+\_\+info)
+\item 
+void \mbox{\hyperlink{_problem___statement__3_8c_a3b8cc71d3a671fa5c22f6c0c81b79be4}{ping\+\_\+testing}} (int ping\+\_\+socket, struct sockaddr\+\_\+in $\ast$addr\+\_\+info, char $\ast$domain, char $\ast$ip, char $\ast$host\+\_\+in)
+\item 
+int \mbox{\hyperlink{_problem___statement__3_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_problem___statement__3_8c_a68a786f65651f9b82f11e1537cbb70de}{ping}} =1
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_problem___statement__3_8c_a614217d263be1fb1a5f76e2ff7be19a2}\label{_problem___statement__3_8c_a614217d263be1fb1a5f76e2ff7be19a2}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!PORT@{PORT}}
+\index{PORT@{PORT}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{PORT}{PORT}}
+{\footnotesize\ttfamily \#define P\+O\+RT~0}
+
+
+
+Definition at line 18 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+\mbox{\Hypertarget{_problem___statement__3_8c_a70ed59adcb4159ac551058053e649640}\label{_problem___statement__3_8c_a70ed59adcb4159ac551058053e649640}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!SIZE@{SIZE}}
+\index{SIZE@{SIZE}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{SIZE}{SIZE}}
+{\footnotesize\ttfamily \#define S\+I\+ZE~64}
+
+
+
+Definition at line 17 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+\mbox{\Hypertarget{_problem___statement__3_8c_a165c57b6838f173dac2bb6a0047a5691}\label{_problem___statement__3_8c_a165c57b6838f173dac2bb6a0047a5691}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!TIMELIMIT@{TIMELIMIT}}
+\index{TIMELIMIT@{TIMELIMIT}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{TIMELIMIT}{TIMELIMIT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+L\+I\+M\+IT~1}
+
+
+
+Definition at line 19 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_problem___statement__3_8c_a7e4191dbf10b7011b66f11f72799cc1a}\label{_problem___statement__3_8c_a7e4191dbf10b7011b66f11f72799cc1a}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!checksum@{checksum}}
+\index{checksum@{checksum}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{checksum()}{checksum()}}
+{\footnotesize\ttfamily unsigned short checksum (\begin{DoxyParamCaption}\item[{void $\ast$}]{data,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+\mbox{\Hypertarget{_problem___statement__3_8c_acbb1b4caa5a7a611cbbf0e997f59e2cc}\label{_problem___statement__3_8c_acbb1b4caa5a7a611cbbf0e997f59e2cc}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!DNS\_lookup@{DNS\_lookup}}
+\index{DNS\_lookup@{DNS\_lookup}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{DNS\_lookup()}{DNS\_lookup()}}
+{\footnotesize\ttfamily char$\ast$ D\+N\+S\+\_\+lookup (\begin{DoxyParamCaption}\item[{char $\ast$}]{addr\+\_\+host,  }\item[{struct sockaddr\+\_\+in $\ast$}]{addr\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Definition at line 68 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+\mbox{\Hypertarget{_problem___statement__3_8c_a3b325b7ae73b911d9884c0dcbb0b514e}\label{_problem___statement__3_8c_a3b325b7ae73b911d9884c0dcbb0b514e}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!interrupt\_func@{interrupt\_func}}
+\index{interrupt\_func@{interrupt\_func}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{interrupt\_func()}{interrupt\_func()}}
+{\footnotesize\ttfamily void interrupt\+\_\+func (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+\mbox{\Hypertarget{_problem___statement__3_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{_problem___statement__3_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!main@{main}}
+\index{main@{main}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 176 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+\mbox{\Hypertarget{_problem___statement__3_8c_a3b8cc71d3a671fa5c22f6c0c81b79be4}\label{_problem___statement__3_8c_a3b8cc71d3a671fa5c22f6c0c81b79be4}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!ping\_testing@{ping\_testing}}
+\index{ping\_testing@{ping\_testing}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{ping\_testing()}{ping\_testing()}}
+{\footnotesize\ttfamily void ping\+\_\+testing (\begin{DoxyParamCaption}\item[{int}]{ping\+\_\+socket,  }\item[{struct sockaddr\+\_\+in $\ast$}]{addr\+\_\+info,  }\item[{char $\ast$}]{domain,  }\item[{char $\ast$}]{ip,  }\item[{char $\ast$}]{host\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Definition at line 84 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+\mbox{\Hypertarget{_problem___statement__3_8c_ad11ca03db7eaa531250ec8cf2ba29010}\label{_problem___statement__3_8c_ad11ca03db7eaa531250ec8cf2ba29010}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!reverse\_DNS\_lookup@{reverse\_DNS\_lookup}}
+\index{reverse\_DNS\_lookup@{reverse\_DNS\_lookup}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{reverse\_DNS\_lookup()}{reverse\_DNS\_lookup()}}
+{\footnotesize\ttfamily char$\ast$ reverse\+\_\+\+D\+N\+S\+\_\+lookup (\begin{DoxyParamCaption}\item[{char $\ast$}]{ip }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_problem___statement__3_8c_a68a786f65651f9b82f11e1537cbb70de}\label{_problem___statement__3_8c_a68a786f65651f9b82f11e1537cbb70de}} 
+\index{Problem\_Statement\_3.c@{Problem\_Statement\_3.c}!ping@{ping}}
+\index{ping@{ping}!Problem\_Statement\_3.c@{Problem\_Statement\_3.c}}
+\subsubsection{\texorpdfstring{ping}{ping}}
+{\footnotesize\ttfamily int ping =1}
+
+
+
+Definition at line 22 of file Problem\+\_\+\+Statement\+\_\+3.\+c.
+
